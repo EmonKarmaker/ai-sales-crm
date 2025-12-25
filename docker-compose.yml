@@ -1,0 +1,30 @@
+
+
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+      - ./.env:/app/.env
+    depends_on:
+      - mailhog
+    environment:
+      - SMTP_HOST=mailhog
+      - SMTP_PORT=1025
+    networks:
+      - crm-network
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "1025:1025"   # SMTP port
+      - "8025:8025"   # Web UI to view emails
+    networks:
+      - crm-network
+
+networks:
+  crm-network:
+    driver: bridge

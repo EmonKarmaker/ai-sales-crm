@@ -1,0 +1,33 @@
+@"
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+test_*.py
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+
+# Reports (keep folder, ignore generated files for fresh demo)
+# reports/*.md
+"@ | Out-File -FilePath ".gitignore" -Encoding UTF8
